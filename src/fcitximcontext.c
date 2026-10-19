@@ -860,6 +860,38 @@ GType fcitx_im_context_register_type(GTypeModule *type_module) {
     return type;
 }
 
+/*
+ * 子类 GType，仅用于以 "fcitx4" 名字注册扩展点。
+ * GLib 的 g_io_extension_point_implement 对同一 GType 只保留第一个名字，
+ * 因此需要派生一个子类来获得独立 GType，使 GTK_IM_MODULE=fcitx4 也可用。
+ * 所有行为（vfunc/init/finalize）继承自 FcitxIMContext。
+ */
+GType fcitx_im_context_register_type4(GTypeModule *type_module) {
+    static GType type = 0;
+    if (type == 0) {
+        static const GTypeInfo info = {
+            sizeof(FcitxIMContextClass),
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            sizeof(FcitxIMContext),
+            0,
+            NULL,
+            NULL,
+        };
+        if (type_module) {
+            type = g_type_module_register_type(
+                type_module, FCITX_TYPE_IM_CONTEXT, "FcitxIMContext4", &info, 0);
+        } else {
+            type = g_type_register_static(FCITX_TYPE_IM_CONTEXT,
+                                          "FcitxIMContext4", &info, 0);
+        }
+    }
+    return type;
+}
+
 /* connect callback */
 static void _fcitx_im_context_connect_cb(FcitxClient *im, void *user_data) {
     FCITX_UNUSED(im);

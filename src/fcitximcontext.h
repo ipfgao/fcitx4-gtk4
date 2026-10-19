@@ -17,6 +17,7 @@
 G_BEGIN_DECLS
 
 #define FCITX_TYPE_IM_CONTEXT (fcitx_im_context_register_type(NULL))
+#define FCITX_TYPE_IM_CONTEXT4 (fcitx_im_context_register_type4(NULL))
 #define FCITX_IM_CONTEXT(obj)                                                  \
     (G_TYPE_CHECK_INSTANCE_CAST((obj), FCITX_TYPE_IM_CONTEXT, FcitxIMContext))
 #define FCITX_IS_IM_CONTEXT(obj)                                               \
@@ -96,6 +97,7 @@ struct _FcitxIMContextClass {
 };
 
 GType fcitx_im_context_register_type(GTypeModule *type_module);
+GType fcitx_im_context_register_type4(GTypeModule *type_module);
 void fcitx_im_context_compose_cache_clear(void);
 FcitxIMContext *fcitx_im_context_new(void);
 

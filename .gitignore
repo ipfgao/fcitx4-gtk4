@@ -14,3 +14,10 @@ tests/
 
 # GTK3 参考版源码（仅分析用，非本项目构建部分）
 src/fcitximcontext-gtk3.c
+
+# glib 源码包（本地分析用）
+glib2.0-2.72.4/
+# glib 源码包（apt source 下载，本地分析用）
+glib2.0-2.72.4/
+glib2.0_*.tar.xz
+glib2.0_*.dsc

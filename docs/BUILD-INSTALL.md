@@ -90,7 +90,7 @@ GTK_DEBUG=immodule GTK_IM_MODULE=fcitx gedit    # 或任意 GTK4 应用
 gtk4 应用通过环境变量启用：
 
 ```bash
-export GTK_IM_MODULE=fcitx
+export GTK_IM_MODULE=fcitx   # 或 fcitx4，二者等价
 export XMODIFIERS=@im=fcitx
 ```
 

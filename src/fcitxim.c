@@ -24,6 +24,9 @@ G_MODULE_EXPORT void g_io_im_fcitx4_load(GIOModule *module)
 
     g_io_extension_point_implement(GTK_IM_MODULE_EXTENSION_POINT_NAME,
                                    FCITX_TYPE_IM_CONTEXT, "fcitx", 10);
+    /* 同时注册 "fcitx4"，使 GTK_IM_MODULE=fcitx4 也能匹配到本模块 */
+    g_io_extension_point_implement(GTK_IM_MODULE_EXTENSION_POINT_NAME,
+                                   FCITX_TYPE_IM_CONTEXT4, "fcitx4", 10);
 }
 
 G_MODULE_EXPORT void g_io_im_fcitx4_unload(GIOModule *module)
