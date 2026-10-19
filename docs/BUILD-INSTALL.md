@@ -82,7 +82,7 @@ sudo chmod 755 "$(pkg-config --variable=libdir gtk4)/gtk-4.0/4.0.0/immodules/lib
 ls -la "$(pkg-config --variable=libdir gtk4)/gtk-4.0/4.0.0/immodules/libim-fcitx4.so"
 
 # 用 GTK_DEBUG=immodule 观察模块加载（应出现 fcitx4 相关行）
-GTK_DEBUG=immodule GTK_IM_MODULE=fcitx4 gedit    # 或任意 GTK4 应用
+GTK_DEBUG=immodule GTK_IM_MODULE=fcitx gedit    # 或任意 GTK4 应用
 ```
 
 ## 5. 使用
@@ -90,7 +90,7 @@ GTK_DEBUG=immodule GTK_IM_MODULE=fcitx4 gedit    # 或任意 GTK4 应用
 gtk4 应用通过环境变量启用：
 
 ```bash
-export GTK_IM_MODULE=fcitx4
+export GTK_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 ```
 

@@ -6,7 +6,7 @@ fcitx 4 GTK4 输入法模块（IM Module），基于 fcitx-4.2.9.8 的 GTK2/GTK3
 
 ## 特性
 
-- GTK4 (≥4.6) 原生 IM 模块，通过 `GTK_IM_MODULE=fcitx4` 启用
+- GTK4 (≥4.6) 原生 IM 模块，通过 `GTK_IM_MODULE=fcitx` 启用
 - 拼音/五笔等 fcitx 引擎的候选词与 preedit 显示
 - surrounding text 支持（fcitx 拼音联想、以词查字）
 - xkb compose 组合键（dead key，如 `^`+`e` → ê）
@@ -44,7 +44,7 @@ sudo make install
 ## 使用
 
 ```bash
-export GTK_IM_MODULE=fcitx4
+export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx       # 非必填，与 GTK 无关
 export XMODIFIERS=@im=fcitx
 ```
@@ -52,7 +52,7 @@ export XMODIFIERS=@im=fcitx
 重启 GTK4 应用（模块只在启动时加载）。用 `GTK_DEBUG=immodule` 可观察模块加载是否成功：
 
 ```bash
-GTK_DEBUG=immodule GTK_IM_MODULE=fcitx4 your-gtk4-app
+GTK_DEBUG=immodule GTK_IM_MODULE=fcitx your-gtk4-app
 ```
 
 ## 修复记录（GTK3 → GTK4 移植引入的问题）
