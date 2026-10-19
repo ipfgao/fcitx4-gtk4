@@ -660,6 +660,15 @@ static gboolean fcitx_im_context_filter_keypress(GtkIMContext *context,
             else {
                 g_hash_table_add(fcitxcontext->handled_events,
                                  gdk_event_ref(event));
+                g_queue_push_tail(fcitxcontext->handled_events_list, event);
+                /* 与 async 回调一致：队列也保存指针，供缓存上限清理时配对 */
+                gpointer ev;
+                while (g_hash_table_size(fcitxcontext->handled_events) >
+                       MAX_CACHED_HANDLED_EVENT &&
+                       (ev = g_queue_pop_head(
+                            fcitxcontext->handled_events_list)) != NULL) {
+                    g_hash_table_remove(fcitxcontext->handled_events, ev);
+                }
                 return TRUE;
             }
         } else {
