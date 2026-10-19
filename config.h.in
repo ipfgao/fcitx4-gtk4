@@ -1,0 +1,6 @@
+#define PACKAGE "fcitx"
+#define VERSION "4.2.9.8"
+#define LOCALEDIR "@LOCALEDIR@"
+#define FCITX_MAJOR_VERSION 4
+#define FCITX_MINOR_VERSION 2
+#define FCITX_MICRO_VERSION 9

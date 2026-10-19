@@ -1,0 +1,16 @@
+# 编译产物
+build/
+
+# GTK4 源码包（下载解压的分析用源码，非本项目源码）
+gtk4-4.6.9+ds/
+gtk4_*.dsc
+gtk4_*.tar.xz
+
+# 备份文件
+*.bak
+
+# 临时测试小程序（未接入构建，不入库）
+tests/
+
+# GTK3 参考版源码（仅分析用，非本项目构建部分）
+src/fcitximcontext-gtk3.c
